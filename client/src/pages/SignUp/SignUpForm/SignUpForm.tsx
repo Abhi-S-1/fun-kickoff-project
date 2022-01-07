@@ -1,5 +1,6 @@
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import InputLabel from '@mui/material/InputLabel';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -51,7 +52,7 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
     >
       {({ handleSubmit, handleChange, values, touched, errors, isSubmitting }) => (
         <form onSubmit={handleSubmit} className={classes.form} noValidate>
-          <Typography className={classes.label}>EMAIL ADDRESS</Typography>
+          <InputLabel className={classes.label}>email address</InputLabel>
           <TextField
             id="email"
             placeholder="Your email"
@@ -70,7 +71,7 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
             value={values.email}
             onChange={handleChange}
           />
-          <Typography className={classes.label}>NAME</Typography>
+          <InputLabel className={classes.label}>name</InputLabel>
           <TextField
             id="username"
             placeholder="Your name"
@@ -90,7 +91,7 @@ const SignUpForm = ({ handleSubmit }: Props): JSX.Element => {
             value={values.username}
             onChange={handleChange}
           />
-          <Typography className={classes.label}>PASSWORD</Typography>
+          <InputLabel className={classes.label}>password</InputLabel>
           <TextField
             id="password"
             placeholder="Create a password"

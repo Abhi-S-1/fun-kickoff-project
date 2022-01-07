@@ -8,12 +8,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   label: {
     fontSize: 19,
-    color: 'rgb(0,0,0)',
     paddingLeft: '5px',
-    '&.MuiTypography-root': {
+    textTransform: 'uppercase',
+    '&.MuiInputLabel-root': {
       fontSize: 12,
       fontWeight: 'bold',
-      marginBottom: '-1.5vh',
+      color: 'rgb(0,0,0)',
     },
   },
   inputs: {

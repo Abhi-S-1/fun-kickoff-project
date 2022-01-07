@@ -2,12 +2,6 @@ import { Theme } from '@mui/material/styles';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme: Theme) => ({
-  authHeader: {
-    alignItems: 'center',
-    flexWrap: 'wrap',
-    marginTop: '2vh',
-    marginLeft: '3rem',
-  },
   accAside: {
     fontSize: 10,
     color: '#000000',
