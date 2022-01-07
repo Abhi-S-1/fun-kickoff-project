@@ -55,7 +55,7 @@ export default function Register(): JSX.Element {
               </Grid>
             </Grid>
             <SignUpForm handleSubmit={handleSubmit} />
-            {/* <AuthHeader linkTo="/login" asideText="Already have an account?" btnText="Login" /> */}
+            <AuthHeader linkTo="/login" asideText="Already a member?" btnText="Login" />
           </Box>
           <Box p={1} alignSelf="center" />
         </Box>
