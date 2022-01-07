@@ -3,8 +3,8 @@ import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles(() => ({
   root: {
     justifyContent: 'center',
-    transform: 'scale(0.8)',
-    // minHeight: '100vh',
+    marginTop: '10vh',
+    marginBottom: '10vh',
     '& .MuiInput-underline:before': {
       borderBottom: '1.2px solid rgba(0, 0, 0, 0.2)',
     },
@@ -14,14 +14,17 @@ const useStyles = makeStyles(() => ({
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     flexDirection: 'column',
-    minHeight: '100vh',
-    paddingTop: 23,
+    padding: '10vh',
   },
   welcome: {
     fontSize: 26,
     paddingBottom: 20,
     color: '#000000',
-    fontWeight: 700,
+    fontWeight: 900,
+    textAlign: 'center',
+    '&.MuiTypography-root': {
+      fontWeight: 900,
+    },
   },
 }));
 
