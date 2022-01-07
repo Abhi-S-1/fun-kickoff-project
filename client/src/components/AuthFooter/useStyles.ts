@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme: Theme) => ({
     filter: 'drop-shadow(0px 2px 6px rgba(74,106,149,0.2))',
     boxShadow: 'none',
     '&.MuiButton-root': {
-      paddingLeft: 0,
       color: '#f14140',
       textDecoration: 'underline',
       textTransform: 'capitalize',
