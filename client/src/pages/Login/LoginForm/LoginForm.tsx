@@ -1,5 +1,6 @@
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import InputLabel from '@mui/material/InputLabel';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -46,9 +47,10 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
     >
       {({ handleSubmit, handleChange, values, touched, errors, isSubmitting }) => (
         <form onSubmit={handleSubmit} className={classes.form} noValidate>
+          <InputLabel className={classes.label}>e-mail address</InputLabel>
           <TextField
             id="email"
-            label={<Typography className={classes.label}>E-mail address</Typography>}
+            placeholder="Your email"
             fullWidth
             margin="normal"
             InputLabelProps={{
@@ -65,9 +67,10 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
             value={values.email}
             onChange={handleChange}
           />
+          <InputLabel className={classes.label}>password</InputLabel>
           <TextField
             id="password"
-            label={<Typography className={classes.label}>Password</Typography>}
+            placeholder="Your password"
             fullWidth
             margin="normal"
             InputLabelProps={{
@@ -84,12 +87,14 @@ export default function Login({ handleSubmit }: Props): JSX.Element {
             value={values.password}
             onChange={handleChange}
           />
-          <Box textAlign="center" marginTop={5}>
+          <Box textAlign="center" marginTop={5} display="flex" justifyContent="space-evenly">
             <Button type="submit" size="large" variant="contained" color="primary" className={classes.submit}>
               {isSubmitting ? <CircularProgress style={{ color: 'white' }} /> : 'Login'}
             </Button>
+            <Button type="submit" size="large" variant="contained" color="primary" className={classes.submit}>
+              {isSubmitting ? <CircularProgress style={{ color: 'white' }} /> : 'Demo Login'}
+            </Button>
           </Box>
-          <Box height={95} />
         </form>
       )}
     </Formik>

@@ -2,7 +2,7 @@ import { createTheme } from '@mui/material/styles';
 
 export const theme = createTheme({
   typography: {
-    fontFamily: '"Open Sans", "sans-serif", "Roboto"',
+    fontFamily: '"Roboto", "Arial',
     fontSize: 12,
     button: {
       textTransform: 'none',

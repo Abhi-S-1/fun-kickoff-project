@@ -8,8 +8,13 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   label: {
     fontSize: 19,
-    color: 'rgb(0,0,0,0.4)',
     paddingLeft: '5px',
+    textTransform: 'uppercase',
+    '&.MuiInputLabel-root': {
+      fontSize: 12,
+      fontWeight: 'bold',
+      color: 'rgb(0,0,0)',
+    },
   },
   inputs: {
     marginTop: '.8rem',
@@ -28,8 +33,11 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderRadius: theme.shape.borderRadius,
     marginTop: 49,
     fontSize: 16,
-    backgroundColor: '#3a8dff',
+    backgroundColor: '##f14140',
     fontWeight: 'bold',
+    '&.MuiButton-root': {
+      backgroundColor: '#f14140',
+    },
   },
 }));
 

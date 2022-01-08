@@ -2,7 +2,10 @@ import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles(() => ({
   root: {
-    minHeight: '100vh',
+    justifyContent: 'center',
+    paddingTop: '10vh',
+    paddingBottom: '10vh',
+    backgroundColor: '#fafafb',
     '& .MuiInput-underline:before': {
       borderBottom: '1.2px solid rgba(0, 0, 0, 0.2)',
     },
@@ -12,14 +15,16 @@ const useStyles = makeStyles(() => ({
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     flexDirection: 'column',
-    minHeight: '100vh',
-    paddingTop: 23,
+    padding: '6vh',
   },
   welcome: {
     fontSize: 26,
     paddingBottom: 20,
     color: '#000000',
-    fontWeight: 700,
+    textAlign: 'center',
+    '&.MuiTypography-root': {
+      fontWeight: 900,
+    },
   },
 }));
 

@@ -6,7 +6,7 @@ import { FormikHelpers } from 'formik';
 import useStyles from './useStyles';
 import login from '../../helpers/APICalls/login';
 import LoginForm from './LoginForm/LoginForm';
-import AuthHeader from '../../components/AuthHeader/AuthHeader';
+import AuthFooter from '../../components/AuthFooter/AuthFooter';
 import { useAuth } from '../../context/useAuthContext';
 import { useSnackBar } from '../../context/useSnackbarContext';
 
@@ -45,16 +45,16 @@ export default function Login(): JSX.Element {
           flexDirection="column"
           className={classes.authWrapper}
         >
-          <AuthHeader linkTo="/signup" asideText="Don't have an account?" btnText="Create account" />
           <Box width="100%" maxWidth={450} p={3} alignSelf="center">
             <Grid container>
               <Grid item xs>
-                <Typography className={classes.welcome} component="h1" variant="h5">
+                <Typography className={classes.welcome} component="h1" variant="h4">
                   Welcome back!
                 </Typography>
               </Grid>
             </Grid>
             <LoginForm handleSubmit={handleSubmit} />
+            <AuthFooter linkTo="/signup" asideText="Don't have an account?" btnText="Create account" />
           </Box>
           <Box p={1} alignSelf="center" />
         </Box>
