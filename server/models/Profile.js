@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { Availability } = require("./Availability");
 
 const profileSchema = new mongoose.Schema({
   first_name: {
@@ -36,7 +37,9 @@ const profileSchema = new mongoose.Schema({
     required: true,
   },
   availability: {
-    type: Object,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: Availability,
+    required: true,
   },
 });
 
