@@ -38,8 +38,7 @@ const profileSchema = new mongoose.Schema({
   },
   availability: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: Availability,
-    required: true,
+    ref: "Availability",
   },
 });
 
