@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 const { Availability } = require("./Availability");
 
 const profileSchema = new mongoose.Schema({
-  first_name: {
+  firstName: {
     type: String,
     required: true,
   },
-  last_name: {
+  lastName: {
     type: String,
     required: true,
   },
@@ -14,13 +14,13 @@ const profileSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  date_of_birth: {
+  dateOfBirth: {
     type: Date,
   },
-  profile_picture: {
+  profilePicture: {
     type: String,
   },
-  phone_number: {
+  phoneNumber: {
     type: Number,
   },
   address: {
@@ -29,7 +29,7 @@ const profileSchema = new mongoose.Schema({
   description: {
     type: String,
   },
-  pet_sitter: {
+  petSitter: {
     type: Boolean,
   },
   rate: {

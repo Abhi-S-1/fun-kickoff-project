@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const availabilitySchema = new mongoose.Schema({
-  week_of: {
+  weekOf: {
     type: Date,
     required: true,
   },
