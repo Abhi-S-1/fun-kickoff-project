@@ -8,8 +8,8 @@ const {
   updateProfile,
 } = require("../controllers/profile");
 
-router.route("/").post(createProfile);
-router.route("/update").post(updateProfile);
+router.route("/").post(protect, createProfile);
+router.route("/update").post(protect, updateProfile);
 router.route("/user").get(getProfile);
 router.route("/all").get(getAllProfiles);
 

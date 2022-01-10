@@ -3,27 +3,31 @@ const User = require("../models/User");
 const asyncHandler = require("express-async-handler");
 
 exports.getProfile = asyncHandler(async (req, res, next) => {
-  const { email } = req.body;
+  const id = req.body.id;
 
-  const user = await User.find({ email: email });
-  const user_id = user[0]._id;
+  const profile = await Profile.find(
+    {
+      user: id,
+    },
+    { user: 0 }
+  );
 
-  const profile = await Profile.find({
-    user: user_id,
-  });
-
-  res.status(200).json({ test: profile });
+  if (!profile) {
+    res.status(400);
+    throw new Error("Invalid request");
+  }
+  res.status(200).json({ profile: profile });
 });
 
 exports.getAllProfiles = asyncHandler(async (req, res, next) => {
-  const { email } = req.body;
+  const profiles = await Profile.find({}, { user: 0 });
 
-  const user = await User.find({ email: email });
-  const user_id = user[0]._id;
+  if (!profiles) {
+    res.status(400);
+    throw new Error("Error.");
+  }
 
-  const profile = await Profile.find();
-
-  res.status(200).json({ test: profile });
+  res.status(200).json({ profiles: profiles });
 });
 
 exports.createProfile = asyncHandler(async (req, res, next) => {
@@ -40,15 +44,15 @@ exports.createProfile = asyncHandler(async (req, res, next) => {
     rate,
     email,
     availabilityId,
+    id,
   } = req.body;
 
-  const user = await User.find({ email: email });
+  const user = await User.find({ _id: id });
 
   if (!user) {
     res.status(400).json({ Error: "Invalid user" });
   }
 
-  const user_id = user[0]._id;
   const profile = await new Profile({
     firstName: firstName,
     lastName: lastName,
@@ -61,11 +65,11 @@ exports.createProfile = asyncHandler(async (req, res, next) => {
     petSitter: petSitter,
     rate: rate,
     email: email,
-    user: user_id,
+    user: id,
     availability: availabilityId,
   }).save();
 
-  res.status(200).json({ test: profile });
+  res.status(200).json({ profile: profile });
 });
 
 exports.updateProfile = asyncHandler(async (req, res, next) => {
@@ -82,13 +86,17 @@ exports.updateProfile = asyncHandler(async (req, res, next) => {
     rate,
     email,
     availabilityId,
+    id,
   } = req.body;
 
-  const user = await User.find({ email: email });
-  const user_id = user[0]._id;
+  const user = await User.find({ _id: id });
+
+  if (!user) {
+    res.status(400).json({ Error: "Invalid user" });
+  }
 
   const updated = await Profile.update(
-    { user: user_id },
+    { user: id },
     {
       firstName: firstName,
       lastName: lastName,
@@ -106,5 +114,5 @@ exports.updateProfile = asyncHandler(async (req, res, next) => {
     }
   );
 
-  res.status(200).json({ test: updated });
+  res.status(200).json({ newProfile: updated });
 });
