@@ -39,8 +39,13 @@ const Navbar: React.FC = () => {
 
   return (
     <AppBar className={classes.root} position="static">
-      <Toolbar>
-        <Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
+      <Toolbar className={classes.toolbar}>
+        <Typography
+          variant="h6"
+          noWrap
+          component="div"
+          sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, marginRight: 'auto' }}
+        >
           <img src={logo} alt="logo" />
         </Typography>
         {loggedInUser && (

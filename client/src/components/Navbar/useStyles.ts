@@ -3,9 +3,13 @@ import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles(() => ({
   root: {
     backgroundColor: 'white',
-    // '&.MuiPaper-root': {
-    //   color: 'white',
-    // },
+  },
+  toolbar: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
+  image: {
+    alignSelf: 'flex-start',
   },
   baritems: {
     textTransform: 'capitalize',
