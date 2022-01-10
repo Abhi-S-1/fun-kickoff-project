@@ -12,9 +12,13 @@ import {
   Divider,
 } from '@mui/material';
 import { Menu as MenuIcon, AccountCircle } from '@mui/icons-material';
+import Button from '@mui/material/Button';
 import { Person as ProfileIcon, Logout as LogoutIcon, Settings as SettingsIcon } from '@mui/icons-material';
+import logo from '../../Images/logo.png';
+import useStyles from './useStyles';
 
 const Navbar: React.FC = () => {
+  const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const { loggedInUser, logout } = useAuth();
 
@@ -34,23 +38,36 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar className={classes.root} position="static">
       <Toolbar>
-        <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          My App
+        <Typography variant="h6" noWrap component="div" sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}>
+          <img src={logo} alt="logo" />
         </Typography>
         {loggedInUser && (
           <>
+            <Button key={'Become a Sitter'} className={classes.baritems}>
+              {'Become a Sitter'}
+            </Button>
+            <Button key={'Notifications'} className={classes.baritems}>
+              {'Notifications'}
+            </Button>
+            <Button key={'My Bookings'} className={classes.baritems}>
+              {'My Bookings'}
+            </Button>
+            <Button key={'Messages'} className={classes.baritems}>
+              {'Messages'}
+            </Button>
+          </>
+        )}
+        {loggedInUser && (
+          <>
             <IconButton
+              className={classes.userMenu}
               size="large"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleMenuOpen}
-              color="inherit"
             >
               <AccountCircle />
             </IconButton>
