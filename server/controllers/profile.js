@@ -2,6 +2,19 @@ const Profile = require("../models/Profile");
 const User = require("../models/User");
 const asyncHandler = require("express-async-handler");
 
+exports.getProfile = asyncHandler(async (req, res, next) => {
+  const { email } = req.body;
+
+  const user = await User.find({ email: email });
+  const user_id = user[0]._id;
+
+  const profile = await Profile.find({
+    user: user_id,
+  });
+
+  res.status(200).json({ test: profile });
+});
+
 exports.createProfile = asyncHandler(async (req, res, next) => {
   const {
     firstName,
