@@ -16,8 +16,9 @@ const useStyles = makeStyles(() => ({
     color: 'black',
   },
   userMenu: {
-    color: 'light-grey',
+    color: 'rgb(180,132,132)',
   },
+  submit: {},
 }));
 
 export default useStyles;
