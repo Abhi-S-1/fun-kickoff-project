@@ -35,7 +35,6 @@ const profileSchema = new mongoose.Schema({
   },
   rate: {
     type: Number,
-    required: true,
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,

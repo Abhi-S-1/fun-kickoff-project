@@ -9,8 +9,8 @@ const {
 } = require("../controllers/profile");
 
 router.route("/").post(protect, createProfile);
-router.route("/update").post(protect, updateProfile);
-router.route("/user").get(getProfile);
+router.route("/update").put(protect, updateProfile);
+router.route("/user").get(protect, getProfile);
 router.route("/all").get(getAllProfiles);
 
 module.exports = router;

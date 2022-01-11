@@ -3,17 +3,12 @@ const User = require("../models/User");
 const asyncHandler = require("express-async-handler");
 
 exports.getProfile = asyncHandler(async (req, res, next) => {
-  const id = req.body.id;
+  const id = req.user.id;
 
-  const profile = await Profile.find(
-    {
-      user: id,
-    },
-    { user: 0 }
-  );
+  const profile = await Profile.findById(id);
 
   if (!profile) {
-    res.status(400);
+    res.status(404);
     throw new Error("Invalid request");
   }
   res.status(200).json({ profile: profile });
@@ -21,11 +16,6 @@ exports.getProfile = asyncHandler(async (req, res, next) => {
 
 exports.getAllProfiles = asyncHandler(async (req, res, next) => {
   const profiles = await Profile.find({}, { user: 0 });
-
-  if (!profiles) {
-    res.status(400);
-    throw new Error("Error.");
-  }
 
   res.status(200).json({ profiles: profiles });
 });
@@ -42,12 +32,11 @@ exports.createProfile = asyncHandler(async (req, res, next) => {
     description,
     petSitter,
     rate,
-    email,
     availabilityId,
-    id,
   } = req.body;
 
-  const user = await User.find({ _id: id });
+  const id = req.user.id;
+  const user = await User.findById({ _id: id });
 
   if (!user) {
     res.status(400).json({ Error: "Invalid user" });
@@ -64,7 +53,6 @@ exports.createProfile = asyncHandler(async (req, res, next) => {
     description: description,
     petSitter: petSitter,
     rate: rate,
-    email: email,
     user: id,
     availability: availabilityId,
   }).save();
@@ -84,12 +72,11 @@ exports.updateProfile = asyncHandler(async (req, res, next) => {
     description,
     petSitter,
     rate,
-    email,
     availabilityId,
-    id,
   } = req.body;
 
-  const user = await User.find({ _id: id });
+  id = req.user.id;
+  const user = await User.findById({ _id: id });
 
   if (!user) {
     res.status(400).json({ Error: "Invalid user" });
@@ -108,7 +95,6 @@ exports.updateProfile = asyncHandler(async (req, res, next) => {
       description: description,
       petSitter: petSitter,
       rate: rate,
-      email: email,
       user: user_id,
       availability: availabilityId,
     }

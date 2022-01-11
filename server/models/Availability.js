@@ -11,7 +11,7 @@ const availabilitySchema = new mongoose.Schema({
   tuesday: {
     type: String,
   },
-  wednseday: {
+  wednesday: {
     type: String,
   },
   thursday: {
