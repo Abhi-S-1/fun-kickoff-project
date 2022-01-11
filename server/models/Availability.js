@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const availabilitySchema = new mongoose.Schema({
   weekOf: {
     type: Date,
-    required: true,
+    default: Date.now,
   },
   monday: {
     type: String,
@@ -11,7 +11,7 @@ const availabilitySchema = new mongoose.Schema({
   tuesday: {
     type: String,
   },
-  wednseday: {
+  wednesday: {
     type: String,
   },
   thursday: {

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { Availability } = require("./Availability");
+const { User } = require("./User");
 
 const profileSchema = new mongoose.Schema({
   firstName: {
@@ -34,6 +35,10 @@ const profileSchema = new mongoose.Schema({
   },
   rate: {
     type: Number,
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
     required: true,
   },
   availability: {
