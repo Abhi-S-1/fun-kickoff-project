@@ -1,25 +1,34 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const { Profile } = require("./Profile");
 
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   password: {
     type: String,
-    required: true
+    required: true,
   },
-  register_date: {
+  registerDate: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
+  paymentToken: {
+    type: String,
+  },
+  profile: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Profile",
+    required: true,
+  },
 });
 
 userSchema.methods.matchPassword = async function (enteredPassword) {
