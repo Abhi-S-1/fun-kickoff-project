@@ -5,7 +5,7 @@ const asyncHandler = require("express-async-handler");
 exports.getProfile = asyncHandler(async (req, res, next) => {
   const id = req.user.id;
 
-  const profile = await Profile.findById(id);
+  const profile = await Profile.findById({ user: id });
 
   if (!profile) {
     res.status(404);
@@ -100,5 +100,6 @@ exports.updateProfile = asyncHandler(async (req, res, next) => {
     }
   );
 
-  res.status(200).json({ newProfile: updated });
+  const profile = await Profile.findById({ user: id });
+  res.status(200).json({ newProfile: profile });
 });
